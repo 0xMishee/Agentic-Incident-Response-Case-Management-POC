@@ -1,25 +1,20 @@
-# Agentic Incident Response Case Management (POC)
+# Agentic Incident Response Case Management
+
+**Every analyst's Claude writing into one live incident case.**
 
 <p align="center"><img src="docs/images/guide-cover.png" alt="Design guide cover: loose bricks becoming an ordered wall" width="420"></p>
 
-One of the most overlooked bottlenecks in a SOC is incident management. It's mostly manual, run by
-senior people who know the organisation's processes and how to lead an incident. Big incidents run for
-days, across teams and dozens of alerts, and most of us still manage them in ticket comments, chat
-threads and an Excel sheet. Vendors would rather ship another chatbot.
+**The problem:** big incidents are still run from tickets, chat threads and Excel.
 
-So this is a proof of concept where **every analyst's Claude writes into the same live case**. Alerts,
-IOCs, timelines, compliance deadlines and who's doing what all land in one place, and the report writes
-itself while you work the incident.
+**The idea:** one shared case. The report writes itself while you work the incident.
 
-You want this because:
+## Why
 
 1. Incident processes are costly and difficult.
-2. Effective remediation comes from strong collaboration.
-3. The current status quo is awful.
+2. Remediation comes from strong collaboration.
+3. The status quo is awful.
 
-> Excuse the code and frontend quality. It was made with Claude and some wine. It's a POC: no
-> authentication, local storage only, and the compliance deadlines are examples that your legal team
-> must check. All demo data is fictional.
+> A proof of concept, made with Claude and some wine. No login, local storage only, fictional demo data.
 
 ## What it does
 
@@ -34,8 +29,7 @@ You want this because:
 
 ## The portal (design)
 
-The screens below are the designed frontend, filled with the demo data. The React build is next; in a
-real organisation you would build these as a custom app in your SIEM/SOAR or as a static web app.
+Designed screens with the demo data. Build them as a custom app in your SIEM/SOAR or as a web app.
 
 | Overview for management | Incident list |
 | --- | --- |
@@ -45,17 +39,16 @@ real organisation you would build these as a custom app in your SIEM/SOAR or as 
 
 ## Build your own: the design guide
 
-Want something like this in your own organisation? The design guide describes it by building block, not
-by product, so you can map it to whatever identity provider, SIEM/SOAR and cloud you already pay for.
+How to build this in your own organisation, with the tools you already pay for. No vendor names.
 
 **[Download the design guide (PDF, 16 pages)](docs/build-your-own-ir-case-management.pdf)**
 
 <img src="docs/images/guide-preview.png" alt="Pages from the design guide" width="860">
 
-What's in it: architecture, the building blocks you most likely already own, a reference deployment, the
-case service and its event log, syncing AI assistant profiles through your identity provider and internal
-git, a catalogue of 15 features (what each is for and how to build it), tracked entities, security, and a
-four-phase roll-out.
+- Architecture and building blocks
+- A reference deployment
+- 15 features: what each is for and how to build it
+- Security and a four-phase roll-out
 
 ## Try it
 
