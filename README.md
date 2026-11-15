@@ -83,6 +83,18 @@ Set your name and role when asked, then start a new session.
 | `/incident queue` | The engineering queue |
 | Paste a file from `demo/alerts/` | Evidence extracted into the case |
 
+### 4. Open the portal
+
+In a second terminal:
+
+```sh
+cd Agentic-Incident-Response-Case-Management-POC/portal
+npm install
+npm run dev
+```
+
+Open http://localhost:5173 and pick who you are in the top right. Want your own "good job team" sound when a case closes? Drop a file in `config/sounds/` and set `portal.celebration_sound` in `config/settings.yml`. Not bundled, for obvious reasons.
+
 ### Tips
 
 - **Windows:** if PowerShell blocks `npm`, use `npm.cmd`.

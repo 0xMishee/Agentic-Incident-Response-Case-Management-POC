@@ -15,6 +15,7 @@ export const SettingsSchema = z.object({
   trusted_sources: z.array(z.string()).default([]),
   digest_window_hours: z.number().default(2),
   default_template: z.string().default("default"),
+  portal: z.object({ celebration_sound: z.string().default("") }).prefault({}),
   demo: z
     .object({
       enabled: z.boolean().default(false),

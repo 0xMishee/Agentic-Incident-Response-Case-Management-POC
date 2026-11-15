@@ -1,6 +1,8 @@
 // HTTP: MCP Streamable HTTP on /mcp (Claude sessions), JSON REST on /api (portal, SIEM connector),
 // and server-sent events for live updates.
 import { randomUUID } from "node:crypto";
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
 import express, { type Request, type Response, type NextFunction } from "express";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { localhostHostValidation, hostHeaderValidation } from "@modelcontextprotocol/sdk/server/middleware/hostHeaderValidation.js";
@@ -98,8 +100,17 @@ export function createApp(svc: CaseService, opts: { host?: string } = {}) {
       tracks: [...svc.cfg.tracks.values()],
       teams: svc.cfg.teams,
       demo: svc.cfg.settings.demo,
+      portal: { celebration_sound: svc.cfg.settings.portal.celebration_sound ? "/api/sound" : null },
       warnings: svc.cfg.warnings,
     });
+  });
+  // The team's own "incident resolved" sound (config/sounds/, git-ignored). 404 when none is set.
+  app.get("/api/sound", (_req, res) => {
+    const rel = svc.cfg.settings.portal.celebration_sound;
+    if (!rel) return void res.sendStatus(404);
+    const file = resolve(svc.cfg.rootDir, rel);
+    if (!file.startsWith(resolve(svc.cfg.rootDir, "config", "sounds")) || !existsSync(file)) return void res.sendStatus(404);
+    res.sendFile(file);
   });
 
   app.get("/api/incidents", (req, res) => {
