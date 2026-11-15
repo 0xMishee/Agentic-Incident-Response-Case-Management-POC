@@ -5,7 +5,7 @@ description: Catch up on an incident. Use when an analyst asks "anything new?", 
 
 # Case digest
 
-The analyst's role is `${user_config.analyst_role}`. Pick the mode from the question, not only the role: a manager asking "anything new" still wants the analyst digest.
+The analyst's role is `${user_config.analyst_role}`. Use the case server's `server_time` as "now" for deadlines and hours left, even if it differs from your own clock: demo mode runs on a fixed scenario day. Pick the mode from the question, not only the role: a manager asking "anything new" still wants the analyst digest.
 
 ## Analyst mode ("anything new?", "what should I do next?")
 

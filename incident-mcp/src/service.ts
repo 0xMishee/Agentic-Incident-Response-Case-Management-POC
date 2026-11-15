@@ -1237,6 +1237,7 @@ export class CaseService {
 
     return {
       incident: { id, codename: st.incident.codename, title: st.incident.title, priority: st.incident.priority, status: st.incident.status, lead: st.incident.lead, opened_at: st.incident.opened_at, detected_at: st.incident.detected_at },
+      server_time: nowIso,
       summary: st.incident.summary || null,
       needs_action,
       counts: {
@@ -1354,7 +1355,7 @@ export class CaseService {
       };
     });
     const queue = team && this.cfg.teams.teams.some((t) => t.id === team) ? this.getTeamQueue({ author, role: "engineer", team, session_id: null }, { team_id: team }).count : null;
-    return { author, incidents: mine, open_incidents_total: this.store.listIncidentRows().filter((r) => r.status !== "Closed").length, team_queue: queue };
+    return { author, incidents: mine, open_incidents_total: this.store.listIncidentRows().filter((r) => r.status === "Open").length, team_queue: queue };
   }
 
   /** Full folded state + derived views, for the portal. */

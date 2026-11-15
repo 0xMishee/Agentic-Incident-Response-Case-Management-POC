@@ -1,6 +1,7 @@
 node_modules/
 data/
 *.log
+!demo/alerts/*.log
 .env
 dist/
 config/sounds/

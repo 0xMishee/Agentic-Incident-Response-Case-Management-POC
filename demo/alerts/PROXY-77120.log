@@ -1,0 +1,6 @@
+# FICTIONAL DEMO DATA - Bittersweet Fjord Chocolate Co. / The Truffle Thief. Not real logs.
+# Web proxy export, times in local time (CET, +01:00). Query: src_host=RND-LT-007 OR dst_domain=*goldenpod* OR dst_domain=*truffle*
+2026-11-14T07:58:09+01:00 PROXY-77101 src=FIN-LT-042 user=clerk method=GET url=https://goldenpod-invoices.test/inv/7731 status=200 bytes_out=812 bytes_in=24311 category=Uncategorized action=allowed
+2026-11-14T08:03:20+01:00 PROXY-77104 src=FIN-LT-042 user=clerk method=GET url=https://goldenpod-invoices.test/oauth/callback?code=... status=302 bytes_out=1204 bytes_in=388 category=Uncategorized action=allowed
+2026-11-14T09:21:47+01:00 PROXY-77118 src=RND-LT-007 user=chocolatier method=GET url=https://truffle-cdn.test/u/session status=200 bytes_out=640 bytes_in=212 dst_ip=203.0.113.66 category=Newly Registered Domain action=allowed
+2026-11-14T09:22:05+01:00 PROXY-77120 src=RND-LT-007 user=chocolatier method=PUT url=https://truffle-cdn.test/u/r7.bin status=201 bytes_out=50331648 bytes_in=97 dst_ip=203.0.113.66 category=Newly Registered Domain action=allowed

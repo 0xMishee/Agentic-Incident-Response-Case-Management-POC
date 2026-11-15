@@ -1,0 +1,7 @@
+# FICTIONAL DEMO DATA - Bittersweet Fjord Chocolate Co. Not real logs. (Seeds the older incident "Quiet Lynx".)
+# WAF export for shop.bittersweet.example, UTC.
+2026-10-15T21:02:11Z WAF-30411 src_ip=203.0.113.66 path=/account/login method=POST status=401 user=praline.fan@example.com ua="python-requests/2.31"
+2026-10-15T21:02:12Z WAF-30412 src_ip=203.0.113.66 path=/account/login method=POST status=401 user=truffle.lover@example.net ua="python-requests/2.31"
+2026-10-15T21:40:55Z WAF-30598 src_ip=203.0.113.66 path=/account/login method=POST status=200 user=gift.buyer@example.org ua="python-requests/2.31"
+2026-10-15T21:41:03Z WAF-30599 src_ip=203.0.113.66 path=/account/orders method=GET status=200 user=gift.buyer@example.org ua="python-requests/2.31"
+# 4,812 failed logins from 203.0.113.66 between 21:02 and 22:05; 3 successful.
