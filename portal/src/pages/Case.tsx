@@ -65,6 +65,7 @@ export function Case({ id }: { id: string }) {
     .filter(([, a]) => now - Date.parse(a.last_at) < 2 * 3_600_000)
     .map(([n]) => n);
   const authors = ["Everyone", ...new Set<string>(c.timeline.map((t: any) => t.author))];
+  const multiDay = new Set(c.timeline.map((t: any) => t.time_utc.slice(0, 10))).size > 1;
   const timeline = [...c.timeline].filter((t: any) => who === "Everyone" || t.author === who).sort((a: any, b: any) => a.time_utc.localeCompare(b.time_utc));
   const tracks = c.compliance.map((t: any) => ({
     ...t,
@@ -274,9 +275,13 @@ export function Case({ id }: { id: string }) {
             </div>
             {timeline.length === 0 && <p className="muted">Nothing on the timeline yet. Paste evidence into Claude.</p>}
             <ol className="timeline">
-              {timeline.map((t: any) => (
+              {timeline.map((t: any, i: number) => (
                 <li key={t.event_id}>
-                  <span className="mono t-time">{hhmm(t.time_utc)}</span>
+                  <span className="mono t-time">
+                    {/* When the timeline spans several days, the first entry of each day carries its date */}
+                    {multiDay && (i === 0 || timeline[i - 1].time_utc.slice(0, 10) !== t.time_utc.slice(0, 10)) && <span className="t-day">{dayTime(t.time_utc).split(" ").slice(0, 2).join(" ")}</span>}
+                    {hhmm(t.time_utc)}
+                  </span>
                   <span className={`t-dot dot-${PHASE_KIND[t.phase] ?? "info"}`} aria-hidden="true" />
                   <span className="stack-6 t-body">
                     <span>{t.description}</span>

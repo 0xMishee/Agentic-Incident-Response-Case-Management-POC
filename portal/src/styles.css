@@ -257,6 +257,8 @@ button.prio-card { font: inherit; width: 100%; }
 .box > .table-scroll thead th { position: sticky; top: 0; background: var(--surface); z-index: 1; }
 .box > .pager { margin-top: auto; flex: none; }
 .kpi-grid .kpi-card { height: 144px; overflow: hidden; }
-.prio-grid .prio-card { height: 210px; overflow: hidden; }
+.card > .prio-grid .prio-card { height: 210px; overflow: hidden; } /* Overview */
+section.prio-grid .prio-card { height: 128px; overflow: hidden; } /* Incidents */
 .prio-card .prio-items { min-height: 0; overflow-y: auto; }
 @media (max-width: 720px) { .box-tall, .box-progress, .box-short { height: auto; max-height: 640px; } }
+.t-day { display: block; font-size: 11px; color: var(--accent); white-space: nowrap; }
