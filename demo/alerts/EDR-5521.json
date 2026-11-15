@@ -1,0 +1,13 @@
+{
+  "_demo": "FICTIONAL DEMO DATA - Bittersweet Fjord Chocolate Co. / The Truffle Thief. Not a real alert.",
+  "alertId": "EDR-5521",
+  "product": "Defender for Endpoint",
+  "title": "Suspicious use of a stolen session token",
+  "severity": "High",
+  "device": "RND-LT-007",
+  "deviceOwner": "chocolatier@bittersweet.example",
+  "deviceRole": "R&D workstation (Recipe Vault sync client)",
+  "activityDateTime": "2026-11-14T07:41:15Z",
+  "details": "Browser session on RND-LT-007 presented a token issued to clerk@bittersweet.example. The token was first used from 192.0.2.14 (see ALRT-884). Process: msedge.exe -> OneDrive.exe sync of /sites/recipe-vault.",
+  "remoteIp": "192.0.2.14"
+}

@@ -1,0 +1,8 @@
+{
+  "_demo": "FICTIONAL DEMO DATA - Bittersweet Fjord Chocolate Co. Not real sign-ins. (Seeds the incident \"Cobalt Otter\".)",
+  "query": "SigninLogs | where AppDisplayName == 'Supplier Portal' and Location !in (usual)",
+  "results": [
+    { "id": "SIGNIN-3301", "time": "2026-11-14T00:14:37Z", "user": "orders@cacaoverde.example", "ip": "198.51.100.77", "country": "unusual for this account", "result": "Success" },
+    { "id": "SIGNIN-3307", "time": "2026-11-14T00:31:02Z", "user": "dispatch@nibs-and-co.example", "ip": "198.51.100.77", "country": "unusual for this account", "result": "Success" }
+  ]
+}

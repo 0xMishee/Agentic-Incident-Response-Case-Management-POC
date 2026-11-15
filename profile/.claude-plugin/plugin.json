@@ -1,0 +1,38 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "soc-ir-profile",
+  "version": "0.1.0",
+  "description": "SOC incident response profile: connects every analyst's Claude session to the shared incident-mcp case server, with skills for opening, connecting, adding evidence, digests, incident meetings and the engineering queue.",
+  "author": { "name": "Agentic IR Case Management POC" },
+  "license": "MIT",
+  "keywords": ["soc", "incident-response", "dfir", "case-management", "mcp"],
+  "userConfig": {
+    "analyst_name": {
+      "type": "string",
+      "title": "Your name in the case log",
+      "description": "Shown as the author of everything you add, e.g. analyst-b or your first name.",
+      "required": true
+    },
+    "analyst_role": {
+      "type": "string",
+      "title": "Your role",
+      "description": "analyst, lead, manager or engineer. Changes what Claude leads with; grants no permissions in the POC.",
+      "default": "analyst",
+      "required": true
+    },
+    "analyst_team": {
+      "type": "string",
+      "title": "Your team id (engineers only)",
+      "description": "A team id from config/org/teams.yml, e.g. detection-eng. Leave empty if you are not on a supporting team.",
+      "default": "",
+      "required": false
+    },
+    "server_url": {
+      "type": "string",
+      "title": "Case server URL",
+      "description": "Where incident-mcp runs.",
+      "default": "http://127.0.0.1:7400",
+      "required": true
+    }
+  }
+}

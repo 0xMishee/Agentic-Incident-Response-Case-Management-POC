@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "incident-mcp": {
+      "type": "http",
+      "url": "${user_config.server_url}/mcp",
+      "headers": {
+        "X-Analyst-Name": "${user_config.analyst_name}",
+        "X-Analyst-Role": "${user_config.analyst_role}",
+        "X-Analyst-Team": "${user_config.analyst_team}"
+      }
+    }
+  }
+}
