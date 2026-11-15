@@ -52,42 +52,43 @@ How to build this in your own organisation, with the tools you already pay for. 
 
 ## Try it
 
-You need Node 24+ and Claude Code. On Windows PowerShell with scripts disabled, use `npm.cmd` instead of
-`npm`.
+You need **Node 24+** and **Claude Code**.
+
+### 1. Start the server with demo data
 
 ```sh
 git clone https://github.com/0xMishee/Agentic-Incident-Response-Case-Management-POC.git
 cd Agentic-Incident-Response-Case-Management-POC/incident-mcp
 npm install
-npm run demo:seed -- --reset   # 10 fictional incidents: a chocolate maker and a recipe thief
-npm run demo:start             # case server on http://127.0.0.1:7400, clock set to the demo morning
+npm run demo:seed -- --reset
+npm run demo:start
 ```
 
-In Claude Code, add the profile from your clone and install it:
+### 2. Install the profile in Claude Code
 
 ```
 /plugin marketplace add <path to your clone>
 /plugin install soc-ir-profile@agentic-ir
 ```
 
-Set your name and role when asked, start a new session, and try:
+Set your name and role when asked, then start a new session.
 
-- "Connect to Amber Heron" · "What's going on?" · "Anything new?"
-- `/incident meeting brief` · `/incident queue`
-- Paste a file from `demo/alerts/` and say "add this"
-- "Open an incident for this alert: …" to start your own
+### 3. Try these
 
-**Several people on one machine:** open a terminal per persona with
-`demo\personas\persona.cmd analyst-b analyst` (or `demo/personas/persona.sh` on macOS/Linux).
+| Say | What you get |
+| --- | --- |
+| "Connect to Amber Heron" | A short briefing on the case |
+| "What's going on?" | Status, deadlines, what needs a decision |
+| "Anything new?" | What others added, and next steps |
+| `/incident queue` | The engineering queue |
+| Paste a file from `demo/alerts/` | Evidence extracted into the case |
 
-More in [`demo/README.md`](demo/README.md): the story, which file each persona pastes, and a video
-script. [`demo/sample-report.md`](demo/sample-report.md) shows what a finished case file looks like.
+### Tips
 
-To run without demo data, use `npm start` instead; it starts with an empty `data/` folder.
-
-```sh
-cd incident-mcp && npm test    # acceptance tests
-```
+- **Windows:** if PowerShell blocks `npm`, use `npm.cmd`.
+- **Several people on one machine:** `demo\personas\persona.cmd analyst-b analyst`
+- **No demo data:** run `npm start` instead.
+- **More:** the story and a video script are in [`demo/README.md`](demo/README.md).
 
 ## License
 
