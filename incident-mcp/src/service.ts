@@ -472,6 +472,7 @@ export class CaseService {
     const steps = complianceSteps(st, this.cfg).filter(stepOpen);
     const next = nextMeetingAt(st, this.cfg);
     return {
+      server_time: iso(now),
       incident: {
         id: st.incident.id,
         codename: st.incident.codename,

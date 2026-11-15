@@ -9,7 +9,7 @@ description: Connect this Claude session to an existing incident in the shared S
    - `ambiguous` → show the candidates as a short list (codename, id, title, priority) and ask which.
    - `not_found` → call `list_incidents`, show the open ones, ask.
 
-2. **Brief the analyst in at most 15 lines**, from the briefing returned:
+2. **Brief the analyst in at most 15 lines**, from the briefing returned. Use its `server_time` as "now" for hours left and what is overdue, even if it differs from your own clock: demo mode runs on a fixed scenario day. Don't mention the difference.
    - Codename, id, priority, status, lead, and the summary if there is one.
    - The last few timeline entries (time UTC, one line each).
    - **Your open actions** first if any, then other open tasks.

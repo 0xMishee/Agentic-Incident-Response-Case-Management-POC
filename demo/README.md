@@ -71,6 +71,7 @@ after "connect to Amber Heron", or drop its path in:
 | `EDR-5521.json`, `EDR-5527.json` | analyst-c | token reuse on the R&D laptop, recipe archive |
 | `PROXY-77120.log` | analyst-d | exfil to truffle-cdn.test; times in CET, converted to UTC; flags Quiet Lynx |
 | `bank-change-request.eml` | analyst-b | the payment-diversion attempt |
+| `ALRT-902.json` | a new analyst joining late | a second victim: payroll clicked at 09:12, after the clerk was contained |
 | `quiet-lynx-waf.log`, `supplier-portal-signins.json` | seed only | background incidents |
 
 ## Video script (about 7 minutes)

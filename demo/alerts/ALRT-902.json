@@ -1,0 +1,22 @@
+{
+  "_demo": "FICTIONAL DEMO DATA - Bittersweet Fjord Chocolate Co. / The Truffle Thief. Not a real alert.",
+  "alertId": "ALRT-902",
+  "product": "Defender for Office 365",
+  "title": "Email messages containing malicious URL removed after delivery",
+  "severity": "Medium",
+  "createdDateTime": "2026-11-14T09:41:20Z",
+  "firstActivityDateTime": "2026-11-14T06:41:37Z",
+  "evidence": {
+    "campaign": "Golden Pod Cocoa Traders invoice 7731 - overdue",
+    "sender": "billing@goldenpod-invoices.test",
+    "senderIp": "198.51.100.23",
+    "url": "hxxps://goldenpod-invoices[.]test/inv/7731",
+    "recipients": [
+      { "mailbox": "clerk@bittersweet.example", "delivered": "2026-11-14T06:41:37Z", "clicked": "2026-11-14T06:58:11Z", "device": "FIN-LT-042" },
+      { "mailbox": "payroll@bittersweet.example", "delivered": "2026-11-14T06:41:39Z", "clicked": "2026-11-14T09:12:47Z", "device": "FIN-LT-051" },
+      { "mailbox": "buyer@bittersweet.example", "delivered": "2026-11-14T06:41:40Z", "clicked": null, "device": null }
+    ],
+    "zapDateTime": "2026-11-14T09:40:58Z",
+    "zapResult": "Removed from 3 mailboxes"
+  }
+}

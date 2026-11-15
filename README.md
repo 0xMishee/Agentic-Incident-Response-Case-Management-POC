@@ -27,9 +27,15 @@
 - **Managers just ask** "what's going on?"
 - **Bots and mailboxes suggest**, a human accepts
 
-## The portal (design)
+## See it work
 
-Designed screens with the demo data. Build them as a custom app in your SIEM/SOAR or as a web app.
+A new analyst joins a live P1, pastes an alert and asks what's new while a colleague works the same case in their own session. Then the manager checks in and makes two calls. Real Claude Code sessions against the demo server, replayed (about 90 seconds).
+
+<img src="docs/images/demo.gif" alt="Demo: analyst-e connects to Amber Heron, adds alert ALRT-902, gets analyst-b's updates; the manager asks for status and accepts a suggestion" width="860">
+
+## The portal
+
+A small React app in [`portal/`](portal/) that reads and writes the same case as everyone's Claude. Live updates, no refresh button. Resolve, close, accept suggestions, tick off compliance steps, deliver from the engineering queue. Close an incident and you get confetti, because you earned it. Prefer your SIEM/SOAR? Build the same screens there; the API is the same.
 
 | Overview for management | Incident list |
 | --- | --- |
