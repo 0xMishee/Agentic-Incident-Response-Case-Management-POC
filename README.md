@@ -85,16 +85,6 @@ script. [`demo/sample-report.md`](demo/sample-report.md) shows what a finished c
 
 To run without demo data, use `npm start` instead; it starts with an empty `data/` folder.
 
-## Repository layout
-
-| Path | What |
-| --- | --- |
-| `incident-mcp/` | Case server (TypeScript, Node 24, `node:sqlite`): event log, MCP tools, REST API, report renderer, tests |
-| `profile/` | Claude Code plugin every SOC member installs: connection, skills, `/incident`, session hook |
-| `config/` | What a SOC changes: report template, compliance tracks, supporting teams, codename word lists |
-| `demo/` | Fictional scenario: alerts, persona launchers, sample report |
-| `docs/` | Feature spec, the design guide PDF, images |
-
 ```sh
 cd incident-mcp && npm test    # acceptance tests
 ```
