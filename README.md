@@ -23,18 +23,14 @@ You want this because:
 
 ## What it does
 
-- **Open an incident** by telling Claude "open an incident for this alert". It gets an id and a codename
-  you can say on a bridge call, like **Amber Heron**.
-- **Everyone joins the same case.** "Connect to Amber Heron", then paste alerts, logs, IOCs, emails.
-  Claude extracts timeline entries (with a confidence score), indicators, assets and MITRE techniques per
-  a template your team owns.
-- **No lost updates.** Every write is an append-only event; the report is rebuilt from the log.
-- **Process built in.** NIS2, GDPR and DORA tracks with deadlines, incident meetings with actions per
-  person, requests to supporting teams with deadlines, and closing is blocked until obligations are met.
-- **Information flows out.** IOCs seen in other incidents get flagged, detection engineers get rule and
-  dashboard drafts in their own queue, and managers ask "what's going on?" instead of joining a call.
-- **People without Claude count too.** A Teams bot in the incident chat and meetings, and an incident
-  mailbox, suggest additions that someone accepts or rejects.
+- **One case per incident**, with a name you can say: *Amber Heron*
+- **Everyone writes to it** from their own Claude session
+- **Paste anything**, get a timeline, IOCs and assets
+- **Compliance deadlines built in**: NIS2, GDPR, DORA
+- **Incident meetings** with one owner per action
+- **Engineers get rule drafts** straight from the evidence
+- **Managers just ask** "what's going on?"
+- **Bots and mailboxes suggest**, a human accepts
 
 ## The portal (design)
 
