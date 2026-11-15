@@ -1,0 +1,16 @@
+{
+  "_demo": "FICTIONAL DEMO DATA - Bittersweet Fjord Chocolate Co. / The Truffle Thief. Not a real alert.",
+  "alertId": "ALRT-890",
+  "product": "Defender for Cloud Apps",
+  "title": "Suspicious inbox forwarding rule",
+  "severity": "High",
+  "createdDateTime": "2026-11-14T07:15:52Z",
+  "activityDateTime": "2026-11-14T07:09:48Z",
+  "mailbox": "clerk@bittersweet.example",
+  "createdBy": "CocoaInvoice Sync (11111111-2222-3333-4444-555555555555)",
+  "rule": {
+    "name": "..",
+    "conditions": { "subjectOrBodyContainsWords": ["invoice", "bank details", "payment"] },
+    "actions": { "forwardTo": ["ledger-copy@truffle-mail.test"], "markAsRead": true, "moveToFolder": "RSS Subscriptions" }
+  }
+}

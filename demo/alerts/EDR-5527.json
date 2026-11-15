@@ -1,0 +1,17 @@
+{
+  "_demo": "FICTIONAL DEMO DATA - Bittersweet Fjord Chocolate Co. / The Truffle Thief. Not a real alert.",
+  "alertId": "EDR-5527",
+  "product": "Defender for Endpoint",
+  "title": "Archive of sensitive files created in a sync folder",
+  "severity": "High",
+  "device": "RND-LT-007",
+  "activityDateTime": "2026-11-14T08:15:02Z",
+  "file": {
+    "name": "recipe_no7.zip",
+    "path": "C:\\Users\\chocolatier\\Bittersweet\\Recipe Vault - Documents\\_staging\\recipe_no7.zip",
+    "sizeBytes": 50331648,
+    "sha256": "9f2c7d1e6a4b8c03f5e2d17a9b6c4e81d0f3a2b5c7e9d1f4a6b8c0e2d4f6b04a",
+    "sensitivityLabel": "Bittersweet Secret - Recipes"
+  },
+  "process": "7z.exe a -tzip recipe_no7.zip \"Praline No.7\\*\""
+}

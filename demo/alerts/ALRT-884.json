@@ -1,0 +1,18 @@
+{
+  "_demo": "FICTIONAL DEMO DATA - Bittersweet Fjord Chocolate Co. / The Truffle Thief. Not a real alert.",
+  "alertId": "ALRT-884",
+  "product": "Entra ID audit / app governance",
+  "title": "User consented to an unverified application with high-privilege mail permissions",
+  "severity": "Medium",
+  "createdDateTime": "2026-11-14T07:06:40Z",
+  "activityDateTime": "2026-11-14T07:03:22Z",
+  "initiatedBy": "clerk@bittersweet.example",
+  "ipAddress": "192.0.2.14",
+  "application": {
+    "displayName": "CocoaInvoice Sync",
+    "appId": "11111111-2222-3333-4444-555555555555",
+    "publisherVerified": false,
+    "replyUrl": "hxxps://goldenpod-invoices[.]test/oauth/callback"
+  },
+  "permissionsGranted": ["Mail.ReadWrite", "Mail.Send", "offline_access", "User.Read"]
+}

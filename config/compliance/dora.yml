@@ -1,0 +1,24 @@
+# DEADLINES ARE APPROXIMATE AND FROM MEMORY. Legal must check them (and the RTS) before real use.
+id: dora
+name: DORA major ICT-related incident
+ask_at_open: "Is this a financial entity in scope of DORA, and is the incident major?"
+trigger: classified_at
+steps:
+  - id: initial
+    title: Initial notification
+    due: 4h
+    condition: Within 4 hours of classification as major, and no later than 24 hours after awareness.
+    owner_role: lead
+    evidence: [submission_reference]
+  - id: intermediate
+    title: Intermediate report
+    due: 72h
+    due_from: step:initial
+    owner_role: lead
+    evidence: [submission_reference]
+  - id: final
+    title: Final report
+    due: 1mo
+    due_from: step:intermediate
+    owner_role: manager
+    evidence: [submission_reference]

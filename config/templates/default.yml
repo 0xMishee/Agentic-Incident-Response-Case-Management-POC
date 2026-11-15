@@ -1,0 +1,103 @@
+name: default
+version: 1
+priorities: [P4, P3, P2, P1]          # low -> high; P1 is the highest
+default_meeting_minutes: { P1: 60, P2: 240, P3: 0, P4: 0 }   # 0 = no fixed meetings
+compliance_offer: [nis2, gdpr, dora]  # Claude asks each track's question at open
+
+sections:
+  - id: summary
+    title: Executive summary
+    kind: prose
+    instructions: >
+      Three to five sentences: what happened, impact, current state.
+      Only rewrite when asked; never overwrite it automatically.
+
+  - id: meetings
+    title: Incident meetings
+    kind: meetings
+    instructions: >
+      Meeting actions need exactly one owner each. Record an outcome for every
+      open action at the next meeting.
+
+  - id: compliance
+    title: Compliance
+    kind: compliance
+    instructions: Mark a step done only with the evidence the track asks for.
+
+  - id: proposals
+    title: Waiting for review
+    kind: proposals
+    instructions: >
+      Suggestions from the Teams meeting bot, the incident mailbox and people without
+      Claude. Nothing here is in the case until someone accepts it. Decide them at the
+      next incident meeting or as soon as you have looked at them.
+
+  - id: timeline
+    title: Timeline
+    kind: timeline
+    instructions: >
+      One entry per event. Use the event's own timestamp, not the time it was pasted.
+      Convert to UTC and keep the original string. Put the source alert or log id
+      in `source`. Pick a phase from the list, or leave it empty if unsure.
+      Set confidence 0-100: 100 for facts from alerts and logs or stated as fact;
+      lower when the analyst hedges ("I think it was..." about 70, "maybe" about 50).
+    fields: [time_utc, source, actor, description, phase]
+    phases: [Reconnaissance, Initial access, Execution, Persistence, Privilege escalation,
+             Credential access, Lateral movement, Collection, Exfiltration, Impact,
+             Containment, Eradication, Recovery]
+
+  - id: iocs
+    title: Indicators
+    kind: table
+    instructions: >
+      Extract every indicator. Defanged values (hxxp, [.]) are fine; the server
+      normalises them. Set verdict to malicious, suspicious, benign or unknown.
+      Set external to true for indicators outside the organisation.
+    fields: [type, value, first_seen, source, verdict]
+    types: [ipv4, ipv6, domain, url, sha256, sha1, md5, email]
+
+  - id: ttps
+    title: Techniques and vulnerabilities
+    kind: table
+    instructions: >
+      Add MITRE ATT&CK techniques (T1114.003) as type ttp and CVEs as type cve
+      when the evidence shows them. They drive Detection Engineering and
+      Vulnerability Management suggestions.
+
+  - id: assets
+    title: Affected assets
+    kind: table
+    instructions: One row per host or account. State is suspected, compromised, contained or clean.
+    fields: [host, user, owner, state]
+
+  - id: correlations
+    title: Correlation flags
+    kind: correlations
+    instructions: Flags are raised by the server. The lead decides to link, merge or dismiss.
+
+  - id: engagements
+    title: Team engagements
+    kind: engagements
+    instructions: >
+      When asking Detection Engineering for help, attach a recommendation built
+      from the evidence: what to detect, why, the evidence ids, and a first query.
+
+  - id: correspondence
+    title: Correspondence
+    kind: correspondence
+    instructions: >
+      Every email that matters to the incident: to and from regulators, the CSIRT,
+      suppliers, customers, legal, insurers. One entry per email: direction, party,
+      from, to, subject, when it was sent, and a one- or two-line summary. Link it to
+      the compliance step it serves (e.g. nis2/early-warning). Store the email itself
+      as an artifact first.
+
+  - id: tasks
+    title: Tasks
+    kind: tasks
+    instructions: One owner per task where possible.
+
+  - id: notes
+    title: Analyst notes
+    kind: log
+    instructions: Free text. Keep findings that do not fit another section here.

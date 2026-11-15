@@ -1,0 +1,52 @@
+# Supporting teams for THIS organisation. Replace them with your own.
+# suggest_when conditions: `field == value`, `priority >= P2`, `external == true`, `no_matching_rule`.
+teams:
+  - id: detection-eng
+    name: Detection Engineering
+    contact: "#det-eng"
+    request_via: jira:DETENG
+    respond_within: 8h
+    request_types: [detection_rule, dashboard, hunt_query, tuning]
+    suggest_when:
+      - event: ioc.added
+        condition: no_matching_rule
+      - event: ttp.added
+
+  - id: vuln-mgmt
+    name: Vulnerability Management
+    contact: vm-team@bittersweet.example
+    respond_within: 24h
+    request_types: [asset_exposure, cve_status, patch_eta]
+    suggest_when:
+      - event: cve.added
+      - event: asset.added
+        condition: state == compromised
+
+  - id: ctic
+    name: CTI
+    contact: "#ctic"
+    respond_within: 4h
+    request_types: [enrichment, attribution, external_sharing]
+    suggest_when:
+      - event: ioc.added
+        condition: external == true
+      - event: priority.changed
+        condition: priority >= P2
+
+  - id: it-ops
+    name: IT Operations / Identity
+    contact: "#it-ops"
+    respond_within: 2h
+    request_types: [isolate_host, reset_credentials, revoke_sessions, revoke_app]
+    suggest_when: []
+
+  - id: comms
+    name: Communications
+    contact: comms@bittersweet.example
+    respond_within: 4h
+    request_types: [internal_statement, external_statement]
+    suggest_when:
+      - event: priority.changed
+        condition: priority >= P1
+
+closure_rule: all_engagements_resolved

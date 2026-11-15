@@ -1,0 +1,20 @@
+# DEADLINES ARE APPROXIMATE AND FROM MEMORY. Legal must check them before real use.
+id: gdpr
+name: GDPR personal data breach (Art. 33/34)
+ask_at_open: "Is personal data involved?"
+trigger: aware_at
+steps:
+  - id: assess
+    title: Assess risk to individuals
+    due: 24h
+    owner_role: dpo
+  - id: notify-dpa
+    title: Notify supervisory authority
+    due: 72h
+    owner_role: dpo
+    evidence: [submission_reference]
+  - id: notify-subjects
+    title: Inform affected individuals
+    due: null
+    condition: Only if the breach is likely to result in a high risk to individuals; without undue delay.
+    owner_role: dpo

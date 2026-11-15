@@ -1,0 +1,22 @@
+# DEADLINES ARE APPROXIMATE AND FROM MEMORY. Legal must check them before real use.
+id: nis2
+name: NIS2 significant incident (Art. 23)
+ask_at_open: "Is this a significant incident at an essential or important entity under NIS2?"
+trigger: aware_at
+steps:
+  - id: early-warning
+    title: Early warning to CSIRT / competent authority
+    due: 24h
+    owner_role: lead
+    evidence: [submission_reference]
+  - id: notification
+    title: Incident notification with initial assessment
+    due: 72h
+    owner_role: lead
+    evidence: [submission_reference]
+  - id: final-report
+    title: Final report
+    due: 1mo
+    due_from: step:notification
+    owner_role: manager
+    evidence: [submission_reference]

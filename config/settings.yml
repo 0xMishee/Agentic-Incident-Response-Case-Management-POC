@@ -1,0 +1,22 @@
+# incident-mcp settings. Paths are relative to the repo root.
+port: 7400
+host: 127.0.0.1
+data_dir: ./data
+confirm_before_write: true      # skills show a preview and ask before writing
+trusted_sources: []             # sources that skip the preview, e.g. siem-connector
+digest_window_hours: 2          # "who is active" window in briefings
+default_template: default
+
+# Demo mode only (docs/FEATURES.md section 13). Turned on by `npm run demo:start`;
+# leave enabled: false for normal use.
+demo:
+  enabled: false
+  anchor: "2026-11-14T09:48:00Z"  # the server clock starts here in demo mode, then runs normally
+  clock_offset_minutes: 0         # used instead of anchor when anchor is null
+  meeting_minutes: 60              # incident-meetings cadence in demo mode; set 5 to fit two meetings in a short video
+
+# Portal (React app, coming next)
+portal:
+  # Played with the confetti when an incident is resolved. Put your own file in config/sounds/
+  # (git-ignored, so licensed or meme audio never lands in the public repo). Empty = built-in chime.
+  celebration_sound: ""          # e.g. config/sounds/good-job-team.mp3

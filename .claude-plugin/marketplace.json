@@ -1,0 +1,14 @@
+{
+  "name": "agentic-ir",
+  "owner": { "name": "Agentic IR Case Management POC" },
+  "metadata": {
+    "description": "SOC profile for the Agentic Incident Response Case Management POC."
+  },
+  "plugins": [
+    {
+      "name": "soc-ir-profile",
+      "source": "./profile",
+      "description": "Connects every analyst's Claude session to the shared incident-mcp case server."
+    }
+  ]
+}
